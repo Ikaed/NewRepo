@@ -12,18 +12,21 @@ document.getElementById('search').onclick = function () {
 function importCurrentTemp(city) {
 
     var weatherList = getWeather(city);
+  
     weatherList.then(currentTemp); //Aktuell temperatur
 }
 
 function deletePreviousSearch() {
     var resetSearch = document.getElementById('searchResult');
     resetSearch.innerHTML = '';
+    var resetSearch = document.getElementById('ccName');
+    resetSearch.innerHTML = '';
    
 }
 
 //Funktion för aktuell temperatur
 function currentTemp(weatherList) {
-
+    console.log(weatherList)
     deletePreviousSearch();
     let singleTime = document.createElement("p");
     var singleImg = new Image();
@@ -37,10 +40,8 @@ function currentTemp(weatherList) {
     document.querySelector("#searchResult").appendChild(singleTime);
 
 
-
-
-    document.querySelector("header").appendChild(singleName);
- 
+    document.querySelector("#ccName").appendChild(singleName);
+    
  
    
     document.querySelector("#searchResult").appendChild(singleTemp);
@@ -60,8 +61,7 @@ function currentTemp(weatherList) {
 
     singleTime.append(nd);
     singleName.append(weatherList.name);
-    singleTemp.append(weatherList.main.temp + "C");
-
+    singleTemp.append(weatherList.main.temp + " degrees");
     
 
 
