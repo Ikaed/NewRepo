@@ -39,7 +39,7 @@ function currentTemp(weatherList) {
 
 
 
-    document.querySelector("#searchResult").appendChild(singleName);
+    document.querySelector("header").appendChild(singleName);
  
  
    
